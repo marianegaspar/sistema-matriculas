@@ -6,15 +6,16 @@ function Header() {
             <h1>StudyLink</h1>
             <nav>
                 <ul>
-                   <li><a href="#">Disciplinas</a></li>
-                   <li><a href="#">Matrículas</a></li> 
-                   <li><a href="#">Calendário</a></li> 
-                   <li><a href="#">Notas</a></li>  
+                   <li><Link to="/course-info">Disciplinas</Link></li>
+                   <li><Link to="/courses">Cursos</Link></li>
+                   <li><Link to="/">Matrículas</Link></li> 
+                   <li><Link to="/card-bullet">Matrículas</Link></li> 
+                   <li><Link to="/">Calendário</Link></li> 
+                   <li><Link to="/">Notas</Link></li>  
                 </ul>
             </nav>
         </header>
     );
-    
 }
 
-export default Header;  
+export default Header;

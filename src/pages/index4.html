@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cursos Recomendados</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1173d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-gray-200">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<main class="flex-1 px-4 sm:px-6 lg:px-8 xl:px-40 py-10">
+<div class="layout-content-container mx-auto flex max-w-5xl flex-col gap-8">
+<!-- Page Heading -->
+<div class="flex flex-col gap-3 text-center">
+<h1 class="text-4xl font-black leading-tight tracking-[-0.033em] text-[#111418] dark:text-white">Descubra seu Próximo Curso</h1>
+<p class="text-base font-normal leading-normal text-[#617589] dark:text-gray-400">Com base em seu histórico acadêmico e interesses, selecionamos estas recomendações especialmente para você.</p>
+</div>
+<!-- Filter Chips -->
+<div class="flex items-center justify-center gap-2 sm:gap-3 p-3 overflow-x-auto">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-primary pl-4 pr-4 text-white hover:bg-primary/90 transition-colors">
+<p class="text-sm font-medium leading-normal">Todos</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700 pl-4 pr-4 text-[#111418] dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<p class="text-sm font-medium leading-normal">Exatas</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700 pl-4 pr-4 text-[#111418] dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<p class="text-sm font-medium leading-normal">Humanas</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700 pl-4 pr-4 text-[#111418] dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<p class="text-sm font-medium leading-normal">Saúde</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full bg-background-light dark:bg-background-dark border border-gray-200 dark:border-gray-700 pl-4 pr-4 text-[#111418] dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<p class="text-sm font-medium leading-normal">Tecnologia</p>
+</button>
+</div>
+<!-- Courses Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Course Card 1 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 shadow-sm transition-all hover:shadow-lg dark:hover:border-gray-700 overflow-hidden">
+<img class="h-48 w-full object-cover" data-alt="Team working on a project in a modern office." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwZ5HNkvWx7yH2eAtvsBmjX14P4EoqkKyqisG2z1R2vZL1RD8Hlzy8ESohAgFh6apnHZ-JfakyU--c_d1jN5SfnwaaOdP1TmqVhR_LpprODilT-_Yi5rNKUQdyHFa7oWsHmdQ-UGYfgRgmtr8DA1V11v94JRaipKI-20bTNjJMjFQk_H0bXl0-KpONjovlXZWLeG0YyTtqomIjM9JIOwpSpnAx5SMWER5UAAFQTaz_zzj12gxlef4dBT0udp6Mv5qLpntMPVX_3BM"/>
+<div class="flex flex-col p-5 pt-0 flex-1">
+<div class="flex flex-col gap-3 flex-1">
+<div class="flex gap-2">
+<span class="inline-flex items-center rounded-md bg-orange-100 dark:bg-orange-900/50 px-2 py-1 text-xs font-medium text-orange-700 dark:text-orange-300">Alta Demanda</span>
+<span class="inline-flex items-center rounded-md bg-blue-100 dark:bg-blue-900/50 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-300">Tecnologia</span>
+</div>
+<h3 class="text-lg font-bold leading-normal text-[#111418] dark:text-white">Desenvolvimento Web Full Stack</h3>
+<p class="text-sm font-normal leading-normal text-[#617589] dark:text-gray-400">Aprenda a criar aplicações web completas do zero, dominando as tecnologias mais requisitadas pelo mercado.</p>
+</div>
+<div class="mt-6">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Ver Detalhes da Turma</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 shadow-sm transition-all hover:shadow-lg dark:hover:border-gray-700 overflow-hidden">
+<img class="h-48 w-full object-cover" data-alt="A person presenting marketing data on a large screen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd7zXjeHGrRHP1t0RVvkXDXksKOCBUqT97m7TXo0gensTafkTpm_Nr41fIh4UhR34wZwSr4kZmv5t1lfFbfizAN59Jox1fLILEVDJFqJoZMZvlTkhv0aZLBOIPInn_2D4rrLpM72PID1_BJNyxNtaOPyluq_7z6Y2aumvP1mLWl1f7YzcMKHsCzLLY7VLA-pk8jMprI_CdwVauS4MbEzUjqgxfh0O53s6WO_si9TpHh9A3Dk61NJq3GAJTsx4mFdr0JvtofnukPGI"/>
+<div class="flex flex-col p-5 pt-0 flex-1">
+<div class="flex flex-col gap-3 flex-1">
+<div class="flex gap-2">
+<span class="inline-flex items-center rounded-md bg-yellow-100 dark:bg-yellow-900/50 px-2 py-1 text-xs font-medium text-yellow-800 dark:text-yellow-300">Marketing</span>
+<span class="inline-flex items-center rounded-md bg-green-100 dark:bg-green-900/50 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-300">Novo</span>
+</div>
+<h3 class="text-lg font-bold leading-normal text-[#111418] dark:text-white">Marketing Digital Avançado</h3>
+<p class="text-sm font-normal leading-normal text-[#617589] dark:text-gray-400">Domine estratégias de SEO, mídias sociais e análise de dados para impulsionar negócios online.</p>
+</div>
+<div class="mt-6">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Ver Detalhes da Turma</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Course Card 3 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 shadow-sm transition-all hover:shadow-lg dark:hover:border-gray-700 overflow-hidden">
+<img class="h-48 w-full object-cover" data-alt="A team collaborating around a table with sticky notes on a glass wall." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE9U-DOj2o7vaxfZdS7GQXI0UxBKzxg8Bas8KbNCnldRTPjLP-TQsZ8O9j6cCrxImxLdh-FPZeiJnWTdE7Z6GGLbO2WVcr1x2XwP5wTXoEsJJ13VLiY8quvCn1efS_7NWNzEoeGtMVO9flfoF_UHh6WSVtlMHmxq-hxoi_GAygAKQPzUSl5ydRYvFOfEko_5E3t4EOSlQ9Dqfwg_OGPiEWED8SOUGFysTNCGfNIieidhb0AMJi1T44wI151HUTzDO7MNVV_Yn2eOw"/>
+<div class="flex flex-col p-5 pt-0 flex-1">
+<div class="flex flex-col gap-3 flex-1">
+<div class="flex gap-2">
+<span class="inline-flex items-center rounded-md bg-blue-100 dark:bg-blue-900/50 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-300">Gestão</span>
+</div>
+<h3 class="text-lg font-bold leading-normal text-[#111418] dark:text-white">Gestão de Projetos Ágeis</h3>
+<p class="text-sm font-normal leading-normal text-[#617589] dark:text-gray-400">Conheça as metodologias Scrum e Kanban para otimizar o fluxo de trabalho e entregar projetos de sucesso.</p>
+</div>
+<div class="mt-6">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Ver Detalhes da Turma</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Course Card 4 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 shadow-sm transition-all hover:shadow-lg dark:hover:border-gray-700 overflow-hidden">
+<img class="h-48 w-full object-cover" data-alt="A desk with multiple monitors displaying data visualizations and code." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0toy9mkhBRoPjO2OfY6X8Axi18fCbvL3Xnupv2u8d9tdFojz5yy1XIbjjpWpZG3S2ktWJxfNlJf8CEzDJJMNKlAcSPaKwxKDDY5hHmbb7Nb_ZC_vJDsrbn00fqK7obl9PABLjkzSobTCcllVKwcYtmLIV2ldzWyw6C9KezbItemEqd-Wu51_z5XKd79REmWTaanH1NspcsamTGxTvehs5k2LpAuHk5NI8_6HyY3vgQRrh9KC6AEZTy-PG-6fInLnX86h-NoZ6t-E"/>
+<div class="flex flex-col p-5 pt-0 flex-1">
+<div class="flex flex-col gap-3 flex-1">
+<div class="flex gap-2">
+<span class="inline-flex items-center rounded-md bg-blue-100 dark:bg-blue-900/50 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-300">Tecnologia</span>
+<span class="inline-flex items-center rounded-md bg-purple-100 dark:bg-purple-900/50 px-2 py-1 text-xs font-medium text-purple-700 dark:text-purple-300">Exatas</span>
+</div>
+<h3 class="text-lg font-bold leading-normal text-[#111418] dark:text-white">Introdução à Ciência de Dados</h3>
+<p class="text-sm font-normal leading-normal text-[#617589] dark:text-gray-400">Explore os fundamentos da análise de dados e machine learning para extrair insights valiosos.</p>
+</div>
+<div class="mt-6">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Ver Detalhes da Turma</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Course Card 5 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 shadow-sm transition-all hover:shadow-lg dark:hover:border-gray-700 overflow-hidden">
+<img class="h-48 w-full object-cover" data-alt="People studying together in a library with books and laptops." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTovFPqqyZHSVQ8AZ1BY_7XaZONwj29iBf3MaWvbvhSkz94MO2no8hWgsoc6ZgZNhpe4pchcIUT2ueLJbKcYPu745KaThKgHdHwmn4gOmhgjLDyH_Pom3cjt0aDg-bgWLyquU0QDpw_yLpkj88k0W97PWk8XwcHqMLOBDv5XeweL1Mc-XUbmuU09xq1MH-3GYBZOsV1fI7cf3kCQTVv68G3Ov12gr3R4x4Z1G-OBCZb7gijmZrYjc-1QZjj1r77OUB-tBjVuYe-iI"/>
+<div class="flex flex-col p-5 pt-0 flex-1">
+<div class="flex flex-col gap-3 flex-1">
+<div class="flex gap-2">
+<span class="inline-flex items-center rounded-md bg-pink-100 dark:bg-pink-900/50 px-2 py-1 text-xs font-medium text-pink-700 dark:text-pink-300">Humanas</span>
+</div>
+<h3 class="text-lg font-bold leading-normal text-[#111418] dark:text-white">Psicologia Organizacional</h3>
+<p class="text-sm font-normal leading-normal text-[#617589] dark:text-gray-400">Entenda o comportamento humano no ambiente de trabalho para melhorar a produtividade e o bem-estar.</p>
+</div>
+<div class="mt-6">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Ver Detalhes da Turma</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Course Card 6 -->
+<div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 shadow-sm transition-all hover:shadow-lg dark:hover:border-gray-700 overflow-hidden">
+<img class="h-48 w-full object-cover" data-alt="A doctor looking at a tablet with medical imaging." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtxIBF4cViHQiZiHxmPPkUViDZVJLE0A_zV6Ij8KHT2s4jn6aqRvmMtpFSTki7URgTvX3gFlMw08uO75FNr4JA_xZfwt9w2mBgUaXvZAtQvUctMKpXllD3x7X3AvignS_P4WgG16qhJSs7x8Kbrmpv3koPSddnyxF_Ck6gdipsWG8IQCYmv-Ci2JJVso6TNWerCAH4ot9GOhuupmy0hEHilwDkQZIRdZT08wMMyVDEchiZEmP4EmmxSJOU_NAxfxvPo6WKRFIWk1s"/>
+<div class="flex flex-col p-5 pt-0 flex-1">
+<div class="flex flex-col gap-3 flex-1">
+<div class="flex gap-2">
+<span class="inline-flex items-center rounded-md bg-teal-100 dark:bg-teal-900/50 px-2 py-1 text-xs font-medium text-teal-700 dark:text-teal-300">Saúde</span>
+<span class="inline-flex items-center rounded-md bg-green-100 dark:bg-green-900/50 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-300">Novo</span>
+</div>
+<h3 class="text-lg font-bold leading-normal text-[#111418] dark:text-white">Gestão em Saúde</h3>
+<p class="text-sm font-normal leading-normal text-[#617589] dark:text-gray-400">Capacite-se para administrar clínicas e hospitais com foco em eficiência e qualidade no atendimento.</p>
+</div>
+<div class="mt-6">
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+<span class="truncate">Ver Detalhes da Turma</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Feedback Section -->
+<div class="mt-10 pt-10 border-t border-gray-200 dark:border-gray-800">
+<div class="flex flex-col items-center justify-center gap-4">
+<h4 class="text-sm font-bold uppercase leading-normal tracking-widest text-center text-[#617589] dark:text-gray-400">Estas recomendações foram úteis?</h4>
+<div class="flex w-full max-w-xs gap-3">
+<button class="flex grow cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-white dark:bg-background-dark border border-gray-300 dark:border-gray-700 text-[#111418] dark:text-gray-200 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="truncate">Sim</span>
+</button>
+<button class="flex grow cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-white dark:bg-background-dark border border-gray-300 dark:border-gray-700 text-[#111418] dark:text-gray-200 text-sm font-bold leading-normal tracking-[0.015em] hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="truncate">Não</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>
