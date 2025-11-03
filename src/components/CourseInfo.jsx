@@ -2,14 +2,37 @@ import Card from "./Card";
 import Header from "./Header";
 import CardWithList from "./CardWithList";
 import CardWithBullet from "./CardWithBullet";
-import CardWithPrice from "./CardWithPrice";
 import CardWithClasses from "./CardWithClasses";
+import { courses } from "../data/courses";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function CourseInfo({ course }) {
+function CourseInfo() {
+ 
+  const navigate = useNavigate();
+
+  const { id } = useParams(); // Obtém o ID da URL
+  
+  // Encontra o curso pelo ID
+  const course = courses.find(course => course.id === parseInt(id));
+  
+  // Se não encontrar o curso, exibe uma mensagem
+  if (!course) {
+    return (
+      <>
+        <Header />
+        <main className="course-info mt-24">
+          <div className="mx-auto max-w-4xl px-4 py-8">
+            <h1 className="text-2xl font-bold text-center">Curso não encontrado</h1>
+          </div>
+        </main>
+      </>
+    );
+  }
+
   return (
-    <>
-      <Header />
-  <main className="course-info mt-24">    
+    <>    
+      <main className="course-info mt-16">    
         <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -22,7 +45,8 @@ function CourseInfo({ course }) {
                 </p>
               </div>
               <div className="flex w-full shrink-0 flex-col gap-2 sm:w-auto sm:flex-row sm:items-center">
-                <button className="flex shrink-0 items-center justify-center rounded-lg bg-primary px-6 py-3 text-base font-bold text-white shadow-sm transition-transform hover:scale-105">
+                <button className="flex shrink-0 items-center justify-center rounded-lg bg-primary px-6 py-3 text-base font-bold text-white shadow-sm transition-transform hover:scale-105" 
+                onClick={() => navigate('/confirmation')}>
                   <span>Matricular-se</span>
                 </button>                
               </div>              
@@ -31,28 +55,26 @@ function CourseInfo({ course }) {
               <div className="space-y-8 md:col-span-2">
                 <CardWithList
                   title={"Detalhes do Curso"}
-                  listItems={course.whyimportant}
+                  listItems={course.whyimportant || []}
                 />
                 <Card title={"Ementa"} description={course.description} />
                 <Card
                   title={"Pré-requisitos"}
-                  description={course.requisites}
+                  description={course.requisites || "Não há pré-requisitos para este curso."}
                 />
                 <CardWithBullet
                   title={"Para quem é este curso?"}
-                  bulletPoints={course.whoisfor}                
+                  bulletPoints={course.whoisfor || []}                
                 />                
               </div>             
-             <div className="space-y-8">
-                <CardWithPrice priceItem={course.price} />
-                <CardWithClasses schedule={course.schedule} />
-                  <CardWithBullet
+              <div className="space-y-8">                
+                <CardWithClasses schedule={course.schedule || []} />
+                <CardWithBullet
                   title={"Material de Apoio"}
-                  bulletPoints={course.material}               
+                  bulletPoints={course.material || []}               
                 /> 
+              </div>
             </div>
-            </div>
-            
           </div>
         </div>
       </main>

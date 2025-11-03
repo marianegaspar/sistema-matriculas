@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <title>Stitch Design</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1173d4",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-background-light dark:bg-background-dark font-display">
+    <div class="flex flex-col min-h-screen">
+      <header
+        class="bg-background-light dark:bg-background-dark/80 backdrop-blur-sm sticky top-0 z-10 border-b border-background-dark/10 dark:border-background-light/10"
+      >
+        <div
+          class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
+        >
+          <div class="flex items-center gap-4">
+            <div class="text-primary size-8">
+              <svg
+                fill="none"
+                viewBox="0 0 48 48"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <h2 class="text-xl font-bold text-slate-800 dark:text-white">
+              EduConnect
+            </h2>
+          </div>
+          <nav class="hidden md:flex items-center gap-6">
+            <a
+              class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary"
+              href="#"
+              >Home</a
+            >
+            <a
+              class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary"
+              href="#"
+              >Courses</a
+            >
+            <a
+              class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary"
+              href="#"
+              >Grades</a
+            >
+            <a
+              class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary"
+              href="#"
+              >Schedule</a
+            >
+            <a
+              class="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary"
+              href="#"
+              >Resources</a
+            >
+          </nav>
+          <div class="flex items-center gap-4">
+            <button
+              class="flex items-center justify-center rounded-full size-10 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
+            >
+              <span class="material-symbols-outlined"> notifications </span>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBaUTXj0HKQ9A4R20Ae3SaksAI6jcDjIhyJx-HfuZvTqCki_MDYAFMNswBPbOLji4s2Ht29O2jwzGhQOMR-nTZAYzYPiLrVcJOYMxDUElp-a5jhQXb1-lFAzddcTuMBVeIJHCIBPQbB-OZ7kh5a8klVebQZT0x0PycAJQXbrCYnZroDCasweil8GeYPgELfYtKLSNIvDookmmeAXlfpDE1C0DQYxQ0HJM4V_ikswmqrzf2Ku7Na-5lx7fYLgYCvGTZoSktOrXb4aj4');
+              "
+            ></div>
+          </div>
+        </div>
+      </header>
+      <main class="flex-1">
+        <div class="mx-auto max-w-7xl py-8 px-4 sm:px-6 lg:px-8">
+          <div
+            class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-4 mb-8"
+          >
+            <h1 class="text-3xl font-bold text-slate-900 dark:text-white">
+              Welcome back, Sarah
+            </h1>
+            <button
+              class="flex items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold shadow-sm hover:bg-primary/90"
+            >
+              <span>Enroll in New Courses</span>
+            </button>
+          </div>
+          <div class="grid grid-cols-1 gap-12">
+            <div>
+              <h2
+                class="text-2xl font-bold text-slate-900 dark:text-white mb-4"
+              >
+                Current Courses
+              </h2>
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+              >
+                <div
+                  class="bg-white dark:bg-background-dark/70 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+                >
+                  <div
+                    class="w-full h-32 bg-center bg-no-repeat bg-cover"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA-qeYn0QrQXC60mNUrFOEYXtze4XOo6Mbf1hP5mvhXaFuAmJEZ-cGkwwzDUmnGFC1AqL0y9dgvHp6X1kXHTI9L9TRf--cZPbKT4mlVx-2xdDfDT3RjcnDrs9mtJz-ooKuYPHE_vkSdFdXNFlm5KAUelB9xtEQ9qpieGzS5P9HTm5gtzvzBBbxvdFIhkD_n_TSSvgjy2D5HhgNQi4H-0sXqUivNPb6exT5vvM7aSElOtx2LrjxN_xCIJbtmZWZHSQ3j_AKWe6GTfsQ');
+                    "
+                  ></div>
+                  <div class="p-4">
+                    <p
+                      class="text-base font-semibold text-slate-800 dark:text-white"
+                    >
+                      Calculus II
+                    </p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">
+                      Professor Davis
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="bg-white dark:bg-background-dark/70 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+                >
+                  <div
+                    class="w-full h-32 bg-center bg-no-repeat bg-cover"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBqXI0xqHZ4PNpdiJ2gUp2Dzi4ucnQVB_nbf-8szJznwIjTU55MQCFStGbkKeKD3mPlij_kofXB58JxemswHzksm9xEQNCzY1ZOS13XBUJfxGDdBF2GROrvD78ZxZAlOSCyzvSj-mgE8GNIWB5Vi9yvQCU6-buoBIs58bg2VVPGKROU2eEZNeV-1n8BuhsXaDLdsmxC149dN0YQBEyHo9fWuJD9OGgy_4nXl9Xa_KuAR-AVw8CqqT_Vo5ipVfprEPu9JctjwkM5xg8');
+                    "
+                  ></div>
+                  <div class="p-4">
+                    <p
+                      class="text-base font-semibold text-slate-800 dark:text-white"
+                    >
+                      World History
+                    </p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">
+                      Professor Clark
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="bg-white dark:bg-background-dark/70 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+                >
+                  <div
+                    class="w-full h-32 bg-center bg-no-repeat bg-cover"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBgw-G0kY_YDxAF9ND00ZAEqtg2P53SlAQS0gDTgSSxgLM7fpuyssJn3HkWzuidt-8j6HQY2aboQvylfsfIUFVj7Pchsm8jFf_ztn_un8xXHDUNbY-bodcG-s2o3NzdWxYFKW94e2777YvGMhMhy2fdPgS81C5QQ97Z3qrwAhhNX_OsOWZVJnboH_bpqtGxasatem7baJSFQU8FoMLhwkA3Kxuj9XiE3CFSs3NImgXrhfhSxEGzv9fgQn6FQo0VXwdrhq3Gt241Sy0');
+                    "
+                  ></div>
+                  <div class="p-4">
+                    <p
+                      class="text-base font-semibold text-slate-800 dark:text-white"
+                    >
+                      Biology 101
+                    </p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">
+                      Professor Lee
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h2
+                class="text-2xl font-bold text-slate-900 dark:text-white mb-4"
+              >
+                Recent Grades
+              </h2>
+              <div
+                class="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-background-dark/70 shadow-sm"
+              >
+                <table class="w-full text-left">
+                  <thead class="bg-slate-50 dark:bg-background-dark/50">
+                    <tr>
+                      <th
+                        class="p-4 text-sm font-semibold text-slate-700 dark:text-slate-200"
+                      >
+                        Course
+                      </th>
+                      <th
+                        class="p-4 text-sm font-semibold text-slate-700 dark:text-slate-200"
+                      >
+                        Assignment
+                      </th>
+                      <th
+                        class="p-4 text-sm font-semibold text-slate-700 dark:text-slate-200"
+                      >
+                        Grade
+                      </th>
+                      <th
+                        class="p-4 text-sm font-semibold text-slate-700 dark:text-slate-200"
+                      >
+                        Due Date
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="divide-y divide-slate-200 dark:divide-slate-700"
+                  >
+                    <tr>
+                      <td
+                        class="p-4 text-sm font-medium text-slate-800 dark:text-white"
+                      >
+                        Calculus II
+                      </td>
+                      <td
+                        class="p-4 text-sm text-slate-600 dark:text-slate-300"
+                      >
+                        Midterm Exam
+                      </td>
+                      <td
+                        class="p-4 text-sm text-slate-600 dark:text-slate-300"
+                      >
+                        85%
+                      </td>
+                      <td
+                        class="p-4 text-sm text-slate-600 dark:text-slate-300"
+                      >
+                        2024-03-15
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="p-4 text-sm font-medium text-slate-800 dark:text-white"
+                      >
+                        World History
+                      </td>
+                      <td
+                        class="p-4 text-sm text-slate-600 dark:text-slate-300"
+                      >
+                        Essay 1
+                      </td>
+                      <td
+                        class="p-4 text-sm text-slate-600 dark:text-slate-300"
+                      >
+                        92%
+                      </td>
+                      <td
+                        class="p-4 text-sm text-slate-600 dark:text-slate-300"
+                      >
+                        2024-03-20
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="p-4 text-sm font-medium text-slate-800 dark:text-white"
+                      >
+                        Biology 101
+                      </td>
+                      <td
+                        class="p-4 text-sm text-slate-600 dark:text-slate-300"
+                      >
+                        Lab Report
+                      </td>
+                      <td
+                        class="p-4 text-sm text-slate-600 dark:text-slate-300"
+                      >
+                        78%
+                      </td>
+                      <td
+                        class="p-4 text-sm text-slate-600 dark:text-slate-300"
+                      >
+                        2024-03-25
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div>
+              <h2
+                class="text-2xl font-bold text-slate-900 dark:text-white mb-4"
+              >
+                Announcements
+              </h2>
+              <div class="space-y-4">
+                <div
+                  class="flex items-start gap-4 p-4 rounded-lg bg-white dark:bg-background-dark/70 shadow-sm"
+                >
+                  <div
+                    class="flex-shrink-0 flex items-center justify-center rounded-full size-12 bg-primary/10 dark:bg-primary/20 text-primary"
+                  >
+                    <span class="material-symbols-outlined"> campaign </span>
+                  </div>
+                  <div class="flex-1">
+                    <p class="font-semibold text-slate-800 dark:text-white">
+                      Course Registration Deadline Approaching
+                    </p>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
+                      The deadline for course registration for the next semester
+                      is April 15th. Please ensure you complete your
+                      registration before this date to secure your spot in your
+                      desired courses.
+                    </p>
+                    <p class="text-xs text-slate-400 dark:text-slate-500 mt-2">
+                      2024-03-28
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-start gap-4 p-4 rounded-lg bg-white dark:bg-background-dark/70 shadow-sm"
+                >
+                  <div
+                    class="flex-shrink-0 flex items-center justify-center rounded-full size-12 bg-primary/10 dark:bg-primary/20 text-primary"
+                  >
+                    <span class="material-symbols-outlined"> campaign </span>
+                  </div>
+                  <div class="flex-1">
+                    <p class="font-semibold text-slate-800 dark:text-white">
+                      Library Closure for Maintenance
+                    </p>
+                    <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
+                      The library will be closed for maintenance on April 5th.
+                      Please plan accordingly and return any borrowed materials
+                      before this date.
+                    </p>
+                    <p class="text-xs text-slate-400 dark:text-slate-500 mt-2">
+                      2024-03-25
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
