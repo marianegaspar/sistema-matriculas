@@ -1,0 +1,7 @@
+{
+  "registros": [
+    { "id": 1, "login": "fulano", "password": "pwd123" },
+    { "id": 2, "login": "beltrano", "password": "abcdef" },
+    { "id": 3, "login": "mariane", "password": "123456" }
+  ]
+}

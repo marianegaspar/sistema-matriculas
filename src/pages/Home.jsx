@@ -5,13 +5,22 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
-  {
-    /* --- HANDLER DE CLIQUE --- */
-  }
-  const navigate = useNavigate();
+
+  {    /* --- HANDLER DE CLIQUE --- */}
+    const navigate = useNavigate();
   const handleButtonClick = () => {
     navigate("/courses"); // Navigate to the home page
   };
+  
+  const [usuario, setUsuario] = useState(null);
+
+  useEffect(() => {
+    const usuarioSalvo = localStorage.getItem("usuarioLogado");
+    if (usuarioSalvo) {
+      setUsuario(JSON.parse(usuarioSalvo));
+    }
+  }, []);
+
 
   return (
     <>
@@ -19,9 +28,17 @@ function Home() {
         <main className="flex-1">
           <div className="mx-auto max-w-7xl py-8 px-4 sm:px-6 lg:px-8">
             <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-4 mb-8">
+                {usuario ? (
               <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
-                Bem-vindo de volta
+                Bem-vindo, {usuario.login}! 
               </h1>
+            ) : (
+              <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
+                Bem-vindo ao Sistema de Matrículas!
+              </h1>
+            )}
+
+              {/* --- BOTÃO NOVA MATRÍCULA --- */}  
               <button
                 onClick={handleButtonClick}
                 className="flex items-center justify-center rounded-lg h-10 px-5 bg-primary text-white text-sm font-bold shadow-sm hover:bg-primary/90"
