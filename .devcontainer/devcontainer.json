@@ -1,0 +1,14 @@
+{
+    "customizations": {
+        "codespaces": {
+            "repositories": {
+                "marianegaspar/sistema-matriculas": {
+                    "permissions": {
+                        //add permissions here
+                        "repository_projects": "write"
+                    }
+                }
+            }
+        }
+    }
+}
