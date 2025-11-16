@@ -17,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/course-info/:id" element={<CourseInfo />} />      
           <Route path="/courses" element={<CoursesAvailable />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="*" element={<h1>404 - Página Não Encontrada</h1>} />
           <Route path="/confirmation" element={<Confirmation />} />

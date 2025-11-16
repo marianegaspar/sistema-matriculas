@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const usersFile = path.join(__dirname, 'public', 'users.json');
 
-// ✅ CORS MANUAL COMPLETO com tratamento de preflight
+
 app.use((req, res, next) => {
   // Headers CORS para todas as respostas
   res.header('Access-Control-Allow-Origin', '*');
@@ -21,7 +21,9 @@ app.use((req, res, next) => {
   
   // ✅ TRATAMENTO EXPLÍCITO DO PREFLIGHT
   if (req.method === 'OPTIONS') {
+    // Log de depuração para confirmar se o preflight chega ao servidor
     console.log('📡 Requisição OPTIONS (preflight) recebida');
+    // Responde imediatamente para evitar bloqueio por CORS
     return res.status(200).send();
   }
   
@@ -31,13 +33,13 @@ app.use((req, res, next) => {
 // Middleware para parsing do body JSON
 app.use(bodyParser.json());
 
-// ✅ TRATAMENTO ESPECÍFICO PARA OPTIONS NA ROTA /auth
+
 app.options('/auth', (req, res) => {
   console.log('📡 Preflight específico para /auth');
   res.status(200).send();
 });
 
-// Endpoint /auth
+
 app.post('/auth', async (req, res) => {
   const { username, password } = req.body;
 
@@ -55,6 +57,8 @@ app.post('/auth', async (req, res) => {
   }
 
   try {
+    // Lê o arquivo `users.json` localizado em `src/backend/public/users.json`.
+    // Essa é uma fonte de dados estática usada apenas em ambiente de desenvolvimento.
     const data = await fs.readFile(usersFile, 'utf8');
     const parsed = JSON.parse(data);
     const users = Array.isArray(parsed.registros) ? parsed.registros : [];
@@ -62,6 +66,7 @@ app.post('/auth', async (req, res) => {
     const usuario = users.find((u) => u.login === username && u.password === password);
 
     if (usuario) {
+      // Usuário encontrado: retorna um token fictício e dados públicos do usuário.
       console.log('✅ Autenticação bem-sucedida (users.json)');
       return res.status(200).json({
         message: 'Autenticação bem-sucedida!',
@@ -75,6 +80,7 @@ app.post('/auth', async (req, res) => {
       });
     }
 
+    // Usuário não encontrado no users.json
     console.log('❌ Autenticação falhou (users.json)');
     return res.status(401).json({
       error: 'Credenciais inválidas',

@@ -6,10 +6,21 @@ import CardWithClasses from "./CardWithClasses";
 import { courses } from "../data/courses";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { CoursesContext } from "../contexts/CoursesContext.jsx";
 
 function CourseInfo() {
  
   const navigate = useNavigate();
+
+  const { enrollCourse } = useContext(CoursesContext);
+
+  // função chamada no clique:
+  const handleEnroll = () => {
+    enrollCourse(course.id);      // marca isMatriculated: true no state central
+    navigate("/confirmation");    // navega para página de confirmação
+  };
+
 
   const { id } = useParams(); // Obtém o ID da URL
   
@@ -29,6 +40,7 @@ function CourseInfo() {
       </>
     );
   }
+  
 
   return (
     <>    
@@ -45,11 +57,15 @@ function CourseInfo() {
                 </p>
               </div>
               <div className="flex w-full shrink-0 flex-col gap-2 sm:w-auto sm:flex-row sm:items-center">
-                <button className="flex shrink-0 items-center justify-center rounded-lg bg-primary px-6 py-3 text-base font-bold text-white shadow-sm transition-transform hover:scale-105" 
-                onClick={() => navigate('/confirmation')}>
-                  <span>Matricular-se</span>
-                </button>                
+          
+              <button
+                className="flex shrink-0 items-center justify-center rounded-lg bg-primary px-6 py-3 text-base font-bold text-white shadow-sm transition-transform hover:scale-105"
+                onClick={handleEnroll}
+              >
+                <span>Matricular-se</span>
+              </button>              
               </div>              
+              
             </div>             
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               <div className="space-y-8 md:col-span-2">

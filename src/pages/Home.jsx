@@ -3,37 +3,45 @@ import img2 from "../assets/images/card-img-2.png";
 import img3 from "../assets/images/card-img-3.png";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { CoursesContext } from "../contexts/CoursesContext.jsx";
+
 
 function Home() {
+  try {
+     const { courses } = useContext(CoursesContext);
 
-  {    /* --- HANDLER DE CLIQUE --- */}
+    // lista de cursos matriculados
+    const matriculadas = courses.filter(c => c.isMatriculated);
+    
+    // --- HANDLER DE CLIQUE ---
     const navigate = useNavigate();
-  const handleButtonClick = () => {
-    navigate("/courses"); // Navigate to the home page
-  };
-  
-  const [usuario, setUsuario] = useState(null);
+    // Redireciona para a lista de cursos quando o usuário clica no botão
+    const handleButtonClick = () => {
+      navigate("/courses"); // Navigate to the courses page
+    };
 
-  useEffect(() => {
-    const usuarioSalvo = localStorage.getItem("usuarioLogado");
-    if (usuarioSalvo) {
-      setUsuario(JSON.parse(usuarioSalvo));
-      return;
-    }
-    // Se não houver usuário salvo, redireciona para a página de login
-    navigate("/login");
-  }, [navigate]);
+    const [usuario, setUsuario] = useState(null);
 
+    useEffect(() => {
+      const usuarioSalvo = localStorage.getItem("usuarioLogado");
+      if (usuarioSalvo) {
+        setUsuario(JSON.parse(usuarioSalvo));
+        return;
+      }
+      // Se não houver usuário salvo, redireciona para a página de login
+      navigate("/login");
+    }, [navigate]);
 
-  return (
-    <>
-      <body className="bg-background-light dark:bg-background-dark font-display">
-        <main className="flex-1">
+    return (
+      <>
+        <div className="bg-background-light dark:bg-background-dark font-display">
+          <main className="flex-1">
           <div className="mx-auto max-w-7xl py-8 px-4 sm:px-6 lg:px-8">
             <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-4 mb-8">
                 {usuario ? (
               <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
-                Bem-vindo, {usuario.login}! 
+                Bem-vindo de volta! 
               </h1>
             ) : (
               <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
@@ -56,53 +64,26 @@ function Home() {
                 Turmas Matriculadas
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {/* Card 1 */}
-                <div className="bg-white dark:bg-background-dark/70 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
-                  <div
-                    className="w-full h-32 bg-center bg-no-repeat bg-cover"
-                    style={{ backgroundImage: `url(${img2})` }}
-                  ></div>
-                  <div className="p-4">
-                    <p className="text-base font-semibold text-slate-800 dark:text-white">
-                      Cálculo II
-                    </p>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
-                      Professor Davi Nunes
-                    </p>
+                {/* Renderiza cursos matriculados do Context
+                    Se não houverem, exibe uma mensagem informativa. */}
+                {matriculadas && matriculadas.length > 0 ? (
+                  matriculadas.map((c) => (
+                    <div key={c.id} className="bg-white dark:bg-background-dark/70 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+                      <div
+                        className="w-full h-32 bg-center bg-no-repeat bg-cover"
+                        style={{ backgroundImage: `url(${c.img || img1})` }}
+                      ></div>
+                      <div className="p-4">
+                        <p className="text-base font-semibold text-slate-800 dark:text-white">{c.name}</p>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">{c.teacher || c.professor || 'Professor(a) não informado'}</p>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div className="col-span-full text-center py-6 text-slate-600 dark:text-slate-300">
+                    Nenhuma turma matriculada ainda. Clique em "Nova Matrícula" para começar.
                   </div>
-                </div>
-
-                {/* Card 2 */}
-                <div className="bg-white dark:bg-background-dark/70 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
-                  <div
-                    className="w-full h-32 bg-center bg-no-repeat bg-cover"
-                    style={{ backgroundImage: `url(${img1})` }}
-                  ></div>
-                  <div className="p-4">
-                    <p className="text-base font-semibold text-slate-800 dark:text-white">
-                      Física Geral I
-                    </p>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
-                      Professor Claudio Vieira
-                    </p>
-                  </div>
-                </div>
-
-                {/* Card 3 */}
-                <div className="bg-white dark:bg-background-dark/70 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
-                  <div
-                    className="w-full h-32 bg-center bg-no-repeat bg-cover"
-                    style={{ backgroundImage: `url(${img3})` }}
-                  ></div>
-                  <div className="p-4">
-                    <p className="text-base font-semibold text-slate-800 dark:text-white">
-                      Engenharia de Software
-                    </p>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
-                      Professora Maria Silva
-                    </p>
-                  </div>
-                </div>
+                )}
               </div>
             </div>
 
@@ -224,9 +205,18 @@ function Home() {
             </div>
           </div>
         </main>
-      </body>
-    </>
-  );
+        </div>
+      </>
+    );
+  } catch (err) {
+    console.error('Erro ao renderizar Home:', err);
+    return (
+      <div className="p-6">
+        <h2 className="text-xl font-bold text-red-600">Erro ao renderizar Home</h2>
+        <pre className="whitespace-pre-wrap mt-2 text-sm">{String(err && err.message)}</pre>
+      </div>
+    );
+  }
 }
 
 export default Home;
