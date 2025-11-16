@@ -1,14 +1,35 @@
-import authRoutes from "./routes/authRoutes.js";
-
 const express = require('express');
+const authRoutes = require('./routes/authRoutes');
+const fs = require('fs');
 const cors = require('cors');
 const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// arquivo de usuários (JSON) usado no endpoint de login
+const usersFile = path.join(__dirname, 'public', 'users.json');
+
 // Middleware
 app.use(cors());
+
+// Middleware CORS manual que garante tratamento de preflight
+// Usa CODESPACE_URL se fornecida, caso contrário permite todas as origens
+const CODESPACE_URL = process.env.CODESPACE_URL || '*';
+app.use((req, res, next) => {
+  // log para depuração de preflight
+  console.log(`[CORS] ${req.method} ${req.url} Origin: ${req.headers.origin}`);
+
+  res.header('Access-Control-Allow-Origin', CODESPACE_URL);
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, Origin, X-Requested-With');
+
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+
+  next();
+});
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../frontend')));
 

@@ -18,8 +18,11 @@ function Home() {
     const usuarioSalvo = localStorage.getItem("usuarioLogado");
     if (usuarioSalvo) {
       setUsuario(JSON.parse(usuarioSalvo));
+      return;
     }
-  }, []);
+    // Se não houver usuário salvo, redireciona para a página de login
+    navigate("/login");
+  }, [navigate]);
 
 
   return (

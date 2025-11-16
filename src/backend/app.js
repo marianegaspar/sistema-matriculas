@@ -1,8 +1,16 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import { promises as fs } from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// arquivo de usuários
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const usersFile = path.join(__dirname, 'public', 'users.json');
 
 // ✅ CORS MANUAL COMPLETO com tratamento de preflight
 app.use((req, res, next) => {
@@ -23,10 +31,6 @@ app.use((req, res, next) => {
 // Middleware para parsing do body JSON
 app.use(bodyParser.json());
 
-// Credenciais fixas
-const FIXED_USERNAME = 'admin';
-const FIXED_PASSWORD = 'senha123';
-
 // ✅ TRATAMENTO ESPECÍFICO PARA OPTIONS NA ROTA /auth
 app.options('/auth', (req, res) => {
   console.log('📡 Preflight específico para /auth');
@@ -34,7 +38,7 @@ app.options('/auth', (req, res) => {
 });
 
 // Endpoint /auth
-app.post('/auth', (req, res) => {
+app.post('/auth', async (req, res) => {
   const { username, password } = req.body;
 
   if (req.method === 'OPTIONS') {
@@ -50,25 +54,36 @@ app.post('/auth', (req, res) => {
     });
   }
 
-  if (username === FIXED_USERNAME && password === FIXED_PASSWORD) {
-    console.log('✅ Autenticação bem-sucedida');
-    return res.status(200).json({
-      message: 'Autenticação bem-sucedida!',
-      token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.dummy-token',
-      user: {
-        id: 1,
-        username: username,
-        role: 'admin'
-      },
-      timestamp: new Date().toISOString()
-    });
-  } else {
-    console.log('❌ Autenticação falhou');
+  try {
+    const data = await fs.readFile(usersFile, 'utf8');
+    const parsed = JSON.parse(data);
+    const users = Array.isArray(parsed.registros) ? parsed.registros : [];
+
+    const usuario = users.find((u) => u.login === username && u.password === password);
+
+    if (usuario) {
+      console.log('✅ Autenticação bem-sucedida (users.json)');
+      return res.status(200).json({
+        message: 'Autenticação bem-sucedida!',
+        token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.dummy-token',
+        user: {
+          id: usuario.id,
+          username: usuario.login,
+          role: 'user'
+        },
+        timestamp: new Date().toISOString()
+      });
+    }
+
+    console.log('❌ Autenticação falhou (users.json)');
     return res.status(401).json({
       error: 'Credenciais inválidas',
       code: 'INVALID_CREDENTIALS',
       message: 'Username ou password incorretos'
     });
+  } catch (err) {
+    console.error('Erro ao ler users.json', err);
+    return res.status(500).json({ error: 'Erro interno ao verificar credenciais' });
   }
 });
 

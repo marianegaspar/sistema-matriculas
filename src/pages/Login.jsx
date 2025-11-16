@@ -1,5 +1,9 @@
+import { use } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // para redirecionar para a home
+
+// URL do endpoint de login (atualmente apontando para ambiente remoto)
+const LOGIN_URL = "https://urban-space-bassoon-69r646pggp7q3r5vq-3000.app.github.dev/auth";
 
 function Login() {
   const [login, setLogin] = useState("");
@@ -11,10 +15,11 @@ function Login() {
     setErro("");
 
     try {
-      const response = await fetch("https://urban-space-bassoon-69r646pggp7q3r5vq-3000.app.github.dev/auth", {
+      var username = login;
+      const response = await fetch(LOGIN_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ login, password }),
+        body: JSON.stringify({ username, password }),
       });
 
       const data = await response.json();
