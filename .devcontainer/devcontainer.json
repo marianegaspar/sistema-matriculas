@@ -5,7 +5,7 @@
                 "marianegaspar/sistema-matriculas": {
                     "permissions": {
                         //add permissions here
-                        "repository_projects": "write"
+                        "permissions": "write-all"
                     }
                 }
             }
